@@ -1,10 +1,16 @@
-function telephoneCheck(str) {
-  let formatChecker = /^1?\s?(\d{3}|\(\d{3}\))-?\s?\d{3}-?\s?\d{4}$/gm 
+function telephoneCheck() {
+  let string = document.getElementById('phoneNumber')
+  let str = String(string.value)
+  
+  let formatChecker = /^1?\s?(\d{3}|\(\d{3}\))-?\s?\d{3}-?\s?\d{4}$/gm;
+
   if( formatChecker.test(str) == 1) {
-    return true
+    string.value = ''
+    answer.innerHTML = ''
+    answer.innerHTML += `${str} is a valid phone number.`; 
   } else {
-    return false
+    string.value = ''
+    answer.innerHTML = ''
+    answer.innerHTML = `${str} is not a valid phone number`;
   }
 }
-
-console.log(telephoneCheck("155-555-5555"));
